@@ -3,7 +3,6 @@ const str = "";
 const exited = "Exited"
 
 const movieList = [];
-let count = 0;
 
 while (true) {
   let movie = prompt(favoriteMovie);
@@ -13,17 +12,16 @@ while (true) {
     break;
   }
  
-  if (movie === str) {
+  if (movie.trim() === str) {
     continue;
   }
 
-  if (movie.trim()) {
-    movieList[count] = movie.trim();    
-    count++;
+  if (!movieList.includes(movie.trim())) {
+    movieList.push(movie.trim());    
   } 
 
 }
 
-if (count > 0) {
+if (movieList.length > 0) {
   console.log(movieList.sort());
 }
